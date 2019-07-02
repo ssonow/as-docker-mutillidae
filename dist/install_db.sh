@@ -1,5 +1,5 @@
 #!/bin/sh
-mysql_install_db --user=mysql > /dev/null
+mysql_install_db --user=mysql --datadir='./data' > /dev/null
 
 MYSQL_ROOT_PASSWORD=$(pwgen -c -n -s -B 15 1)
 printf "\e[32m[!!!] MySQL 'root' password is: %s\e[0m\n" ${MYSQL_ROOT_PASSWORD}
@@ -29,5 +29,5 @@ define('DB_NAME', '${MYSQL_DATABASE}');
 ?>
 EOF
 
-/usr/bin/mysqld --user=mysql --bootstrap --verbose=0 < $tfile
+/usr/bin/mysqld --datadir='./data' --user=mysql --bootstrap --verbose=0 < $tfile
 rm -f $tfile

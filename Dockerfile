@@ -5,9 +5,8 @@ MAINTAINER Edoardo Rosa <edoardo [dot] rosa90 [at] gmail [dot] com> (edoz90)
 
 # == BASIC SOFTWARE ============================================================
 
-RUN sed -i -e 's/v[[:digit:]]\.[[:digit:]]/edge/g' /etc/apk/repositories
+RUN sed -i -e 's/v[[:digit:]]\.[[:digit:]]\+/edge/g' /etc/apk/repositories
 RUN apk update && apk upgrade
-
 RUN apk add logrotate rsyslog supervisor goaccess \
             nginx php mariadb mariadb-client pwgen php-fpm \
             vim bash-completion nginx-vim tmux wget unzip
