@@ -34,7 +34,7 @@ RUN wget -q https://sourceforge.net/projects/mutillidae/files/latest/download -O
 RUN unzip -q mutillidae.zip -d /usr/share/nginx/html/
 RUN bash /tmp/install_db.sh
 RUN rm /tmp/install_db.sh
-RUN sed -i 's/^error_reporting = .*/error_reporting = E_ALL \& ~E_NOTICE \& ~E_DEPRECATED/' /etc/php7/php.ini
+RUN sed -i 's/^error_reporting = .*/error_reporting = E_ALL \& ~E_NOTICE \& ~E_DEPRECATED/' /etc/php81/php.ini
 
 ADD dist/nginx.conf /etc/nginx/nginx.conf
 ADD dist/mutillidae.conf /etc/nginx/sites-enabled/
