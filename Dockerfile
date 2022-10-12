@@ -30,7 +30,7 @@ ADD dist/install_db.sh /tmp/install_db.sh
 
 # == INSTALLATION ================================================================
 
-RUN wget -q https://github.com/webpwnized/mutillidae/archive/v${MUTILLIDAE_VERSION}.zip -O mutillidae.zip
+RUN wget -q https://github.com/webpwnized/mutillidae/archive/refs/heads/master.zip -O mutillidae.zip
 RUN unzip -q mutillidae.zip -d /usr/share/nginx/html/
 RUN bash /tmp/install_db.sh
 RUN rm /tmp/install_db.sh
